@@ -1,0 +1,32 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'eclipse-wtp'
+apply plugin: 'idea'
+
+// In this section you declare where to find the dependencies of your project
+repositories {
+    // You can declare any Maven/Ivy/file repository here.
+    mavenCentral()
+}
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+dependencies {
+    compileOnly  group: 'javax', name: 'javaee-api', version: '7.0'
+}
+
+// configuration des facettes d'eclipse
+eclipse.wtp.facet { 
+    facet name: 'jst.ejb', type: 'fixed'
+    facet name: 'jst.ejb', version: '3.1'
+    //facet name: 'jst.cdi', version: '2.0'
+    facet name: 'jpt.jpa', version: '2.1' 
+ }
+
+// eclipse : utilisation d'UTF-8 par defaut
+eclipseJdt.doLast {
+    File f = file('.settings/org.eclipse.core.resources.prefs')
+    f.write('eclipse.preferences.version=1\n')
+    f.append('encoding/<project>=UTF-8')
+}
