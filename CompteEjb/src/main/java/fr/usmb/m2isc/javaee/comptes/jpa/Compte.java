@@ -21,7 +21,6 @@ public class Compte implements Serializable {
 	public Compte() {
 	}
 	
-	
 	public Compte(String numero, double solde) {
 		super();
 		this.numero = numero;

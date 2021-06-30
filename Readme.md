@@ -11,10 +11,10 @@ On peut :
 
 Les comptes sont stockés dans une base de données. Une entité (JPA) permet d'y accéder (cf. partie EJBs).
 
-Un EJB session sans état (stateless) sert de façade pour les opérations bancaires.
+Un EJB session sans état (Stateless) sert de façade pour les opérations bancaires.
 
 Un client WEB permet de réaliser l'ensemble des opérations sur les comptes : création, débit, crédit, transfert, visualisation ou recherche (cf. client Web). 
-Ce client comporte deux page jsp et plusieurs servlet (1 par opération). La connexion au bean session se fait à l'aide de son interface distante.
+Ce client comporte deux pages jsp et plusieurs servlet (1 par opération). La connexion au bean session se fait à l'aide de son interface distante.
 
 ## Partie EJB
 
@@ -30,9 +30,9 @@ CompteEjb.jar (ejb-jar)
   |-- META-INF/orm.xml (descripteur pour le mapping objet-relationnel -- absent ici)
 </pre>
 
-Toutes les manipulations sur les objets persistants se font dans l'EJB en utilisant l'_entity manager_ correspondant à l'_unité de persistance_ des objets persistants manipulés. 
+Toutes les manipulations sur les objets persistants se font dans l'EJB en utilisant l'*entity manager* correspondant à l'*unité de persistance* des objets persistants manipulés. 
 
-Dans l'EJB on utilise l'annotation `@PersistenceContext` pour récupérer auprès du serveur JavaEE l'_entity manager_ désiré.
+Dans l'EJB on utilise l'annotation `@PersistenceContext` pour récupérer auprès du serveur JavaEE l'*entity manager* désiré.
 
 ```java
 @Stateless
@@ -83,7 +83,7 @@ public class OperationBean implements Operation {
 Ce client WEB permet de réaliser l'ensemble des opérations sur les comptes : création, débit, crédit, transfert, recherche ou visualisation.
 
 Ce client comporte des pages jsp et des servlet. La connexion au bean session se fait à l'aide de l'interface distante de l'EJB. 
-On utilise les _servlet_ pour traiter les requêtes et les _pages JSP_ pour l'affichage du résultat.
+On utilise les *servlet* pour traiter les requêtes et les *pages JSP* pour l'affichage du résultat.
 <pre>
 CompteWeb.war
   |-- <a href="CompteWeb/src/main/webapp/index.html" >index.html</a> (page d'accueil -- formulaires html permettant de créer, rechercher ou modifier les comptes)
@@ -101,7 +101,7 @@ CompteWeb.war
   |-- <a href="CompteWeb/src/main/webapp/WEB-INF/web.xml" >WEB-INF/web.xml</a> (descripteur standard de l'application Web -- optionnel dans les dernières versions de javaEE)
 </pre>
 
-Dans les _servlet_ on utilise l'annotation `@EJB` pour obtenir une référence de l'_EJB session_ :
+Dans les *servlet* on utilise l'annotation `@EJB` pour obtenir une référence de l'*EJB session* :
 
 ```java
 @WebServlet("/CreerCompteServlet")
@@ -126,7 +126,7 @@ L'EJB est ensuite utilisé par les servlet pour effectuer les traitements :
 		...
 ```
 
-puis on utilise la requête pour passer les objets à afficher à la _page JSP_ chargée de l'affichage :
+puis on utilise la requête pour passer les objets à afficher à la *page JSP* chargée de l'affichage :
 
 ```java
 		...
@@ -155,7 +155,7 @@ Cela devrait permettre la création de 3 sous-projets (ou modules), un pour la p
 La création des archives (CompteWeb.war, CompteEjb.jar, CompteEar.ear) peut se faire via gradle en appelant la tâche build sur le projet principal.
 
 Pour utiliser l'exemple il suffit de déployer le fichier CompteEar.ear sur un serveur JavaEE 7. 
-Le client Web est alors dans déployé dans _/CompteWeb_.
+Le client Web est alors dans déployé dans */CompteWeb*.
 
 ## Documentation :
 

@@ -19,6 +19,7 @@ public class OperationBean implements Operation {
 	private EntityManager em;
 	
 	public OperationBean() {
+		super();
 	}
 	
 	@Override

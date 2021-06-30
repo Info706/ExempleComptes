@@ -7,7 +7,7 @@
 <head>
 	<meta charset="ISO-8859-1">
 	<title>Info comptes</title>
-	<link rel="stylesheet" type="text/css" href="css/base.css" ></style>
+	<link rel="stylesheet" type="text/css" href="css/base.css" >
 </head>
 <body>
 	<h1>Affichage comptes</h1>
