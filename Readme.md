@@ -1,4 +1,4 @@
-# Un exemple minimaliste d'une application JavaEE 7
+# Un exemple minimaliste d'une application JavaEE 8
 
 Pour faire simple l'application consiste à manipuler des comptes bancaires (très simplifiés).
 
@@ -154,20 +154,21 @@ Cela devrait permettre la création de 3 sous-projets (ou modules), un pour la p
 
 La création des archives (CompteWeb.war, CompteEjb.jar, CompteEar.ear) peut se faire via gradle en appelant la tâche build sur le projet principal.
 
-Pour utiliser l'exemple il suffit de déployer le fichier CompteEar.ear sur un serveur JavaEE 7. 
+Pour utiliser l'exemple il suffit de déployer le fichier CompteEar.ear sur un serveur JavaEE 8. 
 Le client Web est alors dans déployé dans */CompteWeb*.
 
 ## Documentation :
 
-JavaEE 7
+Java EE 7
 - Doc : http://docs.oracle.com/javaee/7
 - Tutoriel : https://docs.oracle.com/javaee/7/tutorial
 - API (javadoc) : http://docs.oracle.com/javaee/7/api
-- Spécifications : https://www.oracle.com/technetwork/java/javaee/tech/index-jsp-142185.html
+- Spécifications : https://www.oracle.com/java/technologies/javaee/javaeetechnologies.html#javaee7
 
-JaveEE 8
+Jave EE 8
 - Doc : https://javaee.github.io/glassfish/documentation
 - Tutoriel : https://javaee.github.io/tutorial/
-- API (javadodc : https://javaee.github.io/javaee-spec/javadocs/
-- Spécifications : https://www.oracle.com/technetwork/java/javaee/tech/java-ee-8-3890673.html
+- API (javadoc) : https://javaee.github.io/javaee-spec/javadocs/
+- Spécifications : https://www.oracle.com/java/technologies/javaee/javaeetechnologies.html#javaee8
+- Serveurs compatibles : https://www.oracle.com/java/technologies/compatibility-jsp.html
 

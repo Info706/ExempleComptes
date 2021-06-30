@@ -17,5 +17,5 @@ dependencies {
 
 eclipse.wtp.facet { 
     //facet name: 'jst.ear', type: 'fixed'
-    facet name: 'jst.ear', version: '7.0'
+    facet name: 'jst.ear', version: '8.0'
 }

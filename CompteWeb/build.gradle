@@ -19,11 +19,11 @@ repositories {
     mavenCentral()
 }
 
-sourceCompatibility = 1.7
-targetCompatibility = 1.7
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 dependencies {
-    providedCompile group: 'javax', name: 'javaee-web-api', version: '7.0'
+    providedCompile group: 'javax', name: 'javaee-web-api', version: '8.0'
     providedCompile group: 'javax.servlet', name: 'jstl', version: '1.2'
     providedCompile project(':CompteEjb')
 }
@@ -31,7 +31,7 @@ dependencies {
 // configuration des facettes d'eclipse
 eclipse.wtp.facet { 
     //facet name: 'jst.cdi', version: '2.0'
-    facet name: 'jst.web', version: '3.1'
+    facet name: 'jst.web', version: '4.0'
 }
 
 // eclipse : utilisation d'UTF-8 par defaut
