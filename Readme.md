@@ -1,4 +1,4 @@
-# Un exemple minimaliste d'une application JavaEE 8
+# Un exemple minimaliste d'une application Jakarta EE 8 (ou Java EE 8)
 
 Pour faire simple l'application consiste à manipuler des comptes bancaires (très simplifiés).
 
@@ -22,17 +22,17 @@ L'objet persistant, Compte, ainsi que l'EJB session et son interface sont regrou
 <pre>
 CompteEjb.jar (ejb-jar)
   |-- <a href="CompteEjb/src/main/java/fr/usmb/m2isc/javaee/comptes/jpa/Compte.java" >fr/usmb/m2isc/.../jpa/Compte.class</a> (implantation de l'entité Compte (entité JPA))
-  |-- <a href="CompteEjb/src/main/java/fr/usmb/m2isc/javaee/comptes/ejb/OperationBean.java" >fr/usmb/m2isc/.../ejb/OperationBean.class</a> (implantation de l'enterprise java bean Operation (bean session))
+  |-- <a href="CompteEjb/src/main/java/fr/usmb/m2isc/javaee/comptes/ejb/OperationBean.java" >fr/usmb/m2isc/.../ejb/OperationBean.class</a> (implantation du l'EJB Operation (bean session))
   |-- <a href="CompteEjb/src/main/java/fr/usmb/m2isc/javaee/comptes/ejb/Operation.java" >fr/usmb/m2isc/.../ejb/Operation.class</a> (interfaces de manipulation distante du bean session)
   |-- META-INF/MANIFEST.MF (java manifeste)
-  |-- <a href="CompteEjb/src/main/resources/META-INF/ejb-jar.xml" >META-INF/ejb-jar.xml</a> (descripteur standard des enterprise java beans -- optionnel dans les dernières versions de javaEE)
+  |-- <a href="CompteEjb/src/main/resources/META-INF/ejb-jar.xml" >META-INF/ejb-jar.xml</a> (descripteur standard des Jakarta Enterprise Beans (EJB) -- optionnel dans les dernières versions de javaEE et pour Jakarta EE)
   |-- <a href="CompteEjb/src/main/resources/META-INF/persistence.xml" >META-INF/persistence.xml</a> (descripteur standard pour JPA)
   |-- META-INF/orm.xml (descripteur pour le mapping objet-relationnel -- absent ici)
 </pre>
 
 Toutes les manipulations sur les objets persistants se font dans l'EJB en utilisant l'*entity manager* correspondant à l'*unité de persistance* des objets persistants manipulés. 
 
-Dans l'EJB on utilise l'annotation `@PersistenceContext` pour récupérer auprès du serveur JavaEE l'*entity manager* désiré.
+Dans l'EJB on utilise l'annotation `@PersistenceContext` pour récupérer auprès du serveur Jakarta EE (ou Java EE) l'*entity manager* désiré.
 
 ```java
 @Stateless
@@ -98,7 +98,7 @@ CompteWeb.war
                 |-- <a href="CompteWeb/src/main/java/fr/usmb/m2isc/javaee/comptes/web/ChercherComptesServlet.java" >fr/usmb/m2isc/javaee/comptes/web/ChercherComptesServlet.class</a>
                 |-- <a href="CompteWeb/src/main/java/fr/usmb/m2isc/javaee/comptes/web/AfficherCompteServlet.java" >fr/usmb/m2isc/javaee/comptes/web/AfficherCompteServlet.class</a>
   |-- WEB-INF/lib (librairies java utilisées dans les servlet)
-  |-- <a href="CompteWeb/src/main/webapp/WEB-INF/web.xml" >WEB-INF/web.xml</a> (descripteur standard de l'application Web -- optionnel dans les dernières versions de javaEE)
+  |-- <a href="CompteWeb/src/main/webapp/WEB-INF/web.xml" >WEB-INF/web.xml</a> (descripteur standard de l'application Web -- optionnel dans les dernières versions de javaEE et pour Jakarta EE)
 </pre>
 
 Dans les *servlet* on utilise l'annotation `@EJB` pour obtenir une référence de l'*EJB session* :
@@ -154,21 +154,37 @@ Cela devrait permettre la création de 3 sous-projets (ou modules), un pour la p
 
 La création des archives (CompteWeb.war, CompteEjb.jar, CompteEar.ear) peut se faire via gradle en appelant la tâche build sur le projet principal.
 
-Pour utiliser l'exemple il suffit de déployer le fichier CompteEar.ear sur un serveur JavaEE 8. 
+Pour utiliser l'exemple il suffit de déployer le fichier CompteEar.ear sur un serveur Jakarta EE 8 (ou Java EE 8). 
 Le client Web est alors dans déployé dans */CompteWeb*.
 
 ## Documentation :
 
-Java EE 7
+Java EE 7 (Oracle)
 - Doc : http://docs.oracle.com/javaee/7
 - Tutoriel : https://docs.oracle.com/javaee/7/tutorial
 - API (javadoc) : http://docs.oracle.com/javaee/7/api
 - Spécifications : https://www.oracle.com/java/technologies/javaee/javaeetechnologies.html#javaee7
 
-Jave EE 8
+Jave EE 8 (Oracle)
 - Doc : https://javaee.github.io/glassfish/documentation
 - Tutoriel : https://javaee.github.io/tutorial/
 - API (javadoc) : https://javaee.github.io/javaee-spec/javadocs/
 - Spécifications : https://www.oracle.com/java/technologies/javaee/javaeetechnologies.html#javaee8
 - Serveurs compatibles : https://www.oracle.com/java/technologies/compatibility-jsp.html
+
+Jakarta EE 8 (Fondation Eclipse)
+- Doc : https://javaee.github.io/glassfish/documentation
+- Tutoriel : https://javaee.github.io/tutorial/
+- API (javadoc) : https://jakarta.ee/specifications/platform/8/apidocs/
+- Spécifications : https://jakarta.ee/specifications
+- Serveurs compatibles : https://jakarta.ee/compatibility/#tab-8
+
+Jakarta EE 9 (Fondation Eclipse)
+- Doc : https://jakarta.ee/resources/#documentation
+- Tutoriel : https://eclipse-ee4j.github.io/jakartaee-tutorial/
+- API (javadoc) : https://jakarta.ee/specifications/platform/9/apidocs/
+- Spécifications : https://jakarta.ee/specifications
+- Serveurs compatibles : 
+    - https://jakarta.ee/compatibility/#tab-9
+    - https://jakarta.ee/compatibility/#tab-9-1
 

@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.Version;
 
 @NamedQueries ({
 	@NamedQuery(name="all", query="SELECT c FROM Compte c"),
@@ -17,6 +18,8 @@ public class Compte implements Serializable {
 	@Id
 	private String numero;
 	private double solde;
+	@Version
+	private long version;
 	
 	public Compte() {
 	}
